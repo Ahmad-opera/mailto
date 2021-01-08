@@ -34,7 +34,7 @@ const sendMail = (name, phone, openings, role, description, email, company, loca
         if(err){
             cb(err, null);
             console.log(err);
-        }else{
+        }else{ 
             cb(null, data);
         }
     });
