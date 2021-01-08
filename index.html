@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to MyFuse!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js" integrity="sha512-nIwdJlD5/vHj23CbO2iHCXtsqzdTTx3e3uAmpTm4x2Y8xCIFyWu4cSIV8GaGe2UNVq86/1h9EgUZy7tn243qdA==" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/glide.min.js" integrity="sha512-IkLiryZhI6G4pnA3bBZzYCT9Ewk87U4DGEOz+TnRD3MrKqaUitt+ssHgn2X/sxoM7FxCP/ROUp6wcxjH/GcI5Q==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.min.css" integrity="sha512-YQlbvfX5C6Ym6fTUSZ9GZpyB3F92hmQAZTO5YjciedwAaGRI9ccNs4iw2QTCJiSPheUQZomZKHQtuwbHkA9lgw==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/tailwind.min.css">
+    <link rel="stylesheet" href="./css/hamburgers.min.css">
+</head>
+<style>
+    :root{
+        --primary: #F8C446;
+        --secondary: #FFF5DC;
+        --accent: #F6F6F6;
+        --dark: #393939;
+    }
+    body{
+        font-family: 'Quicksand';
+    }
+    .bg-primary{
+        background-color: var(--primary);
+    }
+    .bg-secondary{
+        background-color: var(--secondary);
+    }
+    .bg-accent{
+        background-color: var(--accent);
+    }
+    .bg-dark{
+        background-color: var(--dark);
+    }
+    button .bg-primary:hover{
+        background-color: #f2af13;
+    }
+    .text-primary{
+        color: var(--primary);
+    }
+    .text-secondary{
+        color: var(--secondary);
+    }
+    .text-dark{
+        color: var(--dark);
+    }
+    .btn-bg-trans{
+        background-color: rgba(255, 255, 255, 0.27);
+    }
+    .btn-border{
+        border: 3px solid var(--secondary);
+    }
+    @media screen and (min-width: 768px){
+        .headText{
+            font-size: 38px;
+            line-height: 38px;
+        }
+        .main-header{
+        line-height: 64px;
+    }
+    }
+    @media screen and (max-width: 767px){
+        nav{
+            transition: .4s ease;
+        }
+        .nav-collapsed{
+            margin-top: -140%;
+            transition: .4s ease;
+        }
+    }
+    
+</style>
+<body class="bg-gray-50">
+        <div class="w-full lg:hidden z-40 p-8 absolute" x-data="{ active: false }">
+            <div class="hamburger text-white bg-gray-100 rounded-lg float-right is-active mx-auto w-max" :class="{ 'hamburger--3dx': active == true}" @click="active = ! active">
+            <div class="hamburger-box" >
+              <div class="hamburger-inner"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        <div class="absolute z-40 mt-8 lg:mt-0 rounded-3xl ml-10 bg-transparent lg:px-6 lg:py-8 lg:pt-4 py-2 px-4">
+            <img src="./img/MyFuse.in.svg" alt="Myfuse!" class="w-32 mt-0 lg:mt-6">
+        </div>
+    </div>
+
+    <nav class="absolute bg-white mx-auto w-full z-0 nav-collapsed items-center lg:py-10 pt-32 py-6 lg:flex lg:px-16 justify-center shadow-xl">
+        <ul class="ml-auto font-semibold lg:flex lg:p-0 p-8">
+            <a href="./jobpost.html"><li class="px-4">Post a job</li></a>
+            <a href="#contact"><li class="px-4">Contact</li></a>
+            <a href="#about"><li class="px-4">About</li></a>
+        </ul>
+    </nav>
+    <script>
+        $('.hamburger').on('click', function(){
+            $('nav').toggleClass('nav-collapsed');
+        })
+    </script>
+ 
+    <header class="lg:flex block px-4 lg:p-32 pt-44 items-center lg:pt-64 lg:divide-x-2">
+        <div class="px-4">
+            <h1 class="lg:text-5xl text-3xl font-bold text-center lg:text-left text-gray-600 lg:w-10/12 w-auto py-6 main-header">We connect people to job opportunities</h1>
+        </div>
+        <div class="lg:w-5/12 flex flex-col bg-gray-100 lg:rounded-none text-center lg:text-left rounded-t-3xl lg:bg-gray-50 lg:mt-0 mt-36 pl-0 lg:pl-6 pt-8 py-14">
+            <div class="px-6">
+                <h1 class="font-bold text-2xl">I am an employer</h1>
+                <p class="text-sm">Create a job post and allow people to apply for it, we'll examine candidates to fit your needs</p>
+                <a href="./jobpost.html"><button class="font-semibold hover:bg-yellow-500 px-6 py-2 text-black focus:outline-none rounded-full shadow bg-primary my-2">Post a Job</button></a>
+            </div>
+            <div class="px-6 mt-6">
+                <h1 class="font-bold text-2xl">Looking for job</h1>
+                <p class="text-sm">Browse job postings and apply for the ones meeting your profession</p>
+                <a href="https://play.google.com/store/apps/details?id=com.airavas.myfuse"><img src="./img/playstore.png" alt="PlayStore" class="w-48 mt-3 ring rounded-3xl ring-yellow-500 lg:mx-0 mx-auto"></a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="bg-accent shadow-inner py-10 px-10">
+        <h1 class="font-semibold text-2xl text-black text-center">Why MyFuse?</h1>
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-2 lg:gap-8 pt-14">
+
+            <div class="flex flex-row items-center w-86 lg:flex-col px-10 py-8 bg-white shadow-xl rounded-3xl">
+                <div class="">
+                    <div class="rounded-full shadow-inner text-center items-center w-14 h-14 bg-secondary mx-auto">
+                        <i class="fa fa-lg fa-bolt text-primary p-5 my-auto"></i>
+                    </div>
+                </div>
+                <div class="pl-4 lg:pl-0">
+                    <h1 class="py-2 lg:text-center font-semibold text-sm">Real time update</h1>
+                    <p class="font-thin text-xs lg:text-center mx-auto">Get real time updates on your job application.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-row items-center w-86 lg:flex-col px-10 py-8 bg-white shadow-xl rounded-3xl">
+                <div class="">
+                    <div  class="w-14 h-14 items-center text-center rounded-full bg-secondary shadow-inner">
+                        <i class="fa fa-lg fa-user-shield text-primary pt-5 pl-1"></i>
+                    </div>
+                </div>
+                <div class="pl-4 lg:pl-0">
+                    <h1 class="py-2 lg:text-center font-semibold text-sm">Transparency</h1>
+                    <p class="font-thin text-xs lg:text-center  mx-auto">No agencies in between, your application directly reaches the HR of the concerned company.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-row items-center w-86 lg:flex-col px-10 py-8 bg-white shadow-xl rounded-3xl">
+                <div class="">
+                    <div  class="w-14 h-14 items-center text-center rounded-full bg-secondary shadow-inner">
+                        <i class="fa fa-lg fa-tachometer-alt text-primary pt-5"></i>
+                    </div>
+                </div>
+                <div class="pl-4 lg:pl-0">
+                    <h1 class="py-2 lg:text-center font-semibold text-sm">Mock Interview</h1>
+                    <p class="font-thin text-xs lg:text-center  mx-auto">Personalized mock Interviews will be held as soon as you apply to any of the listed jobs.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-row items-center w-86 lg:flex-col px-10 py-8 bg-white shadow-xl rounded-3xl">
+                <div class="">
+                    <div  class="w-14 h-14 items-center text-center rounded-full bg-secondary shadow-inner">
+                        <i class="fa fa-lg fa-tasks text-primary pt-5"></i>
+                    </div>
+                </div>
+                <div class="pl-4 lg:pl-0">
+                    <h1 class="py-2 lg:text-center font-semibold text-sm">Be Prepared</h1>
+                    <p class="font-thin text-xs lg:text-center  mx-auto">Know what each job required so you can be prepared for an easy round woth HR.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <article class="flex flex-col lg:flex-row items-center lg:divide-x-2 divide-yellow-100 bg-secondary lg:px-24 lg:py-10 py-24 px-10">
+        <div class="lg:px-10">
+            <h1 class="font-semibold text-4xl">Our Mobile App</h1>
+            <p class="font-semibold texl-lg my-4 lg:w-8/12">We've built our mobile app to ease and increase usability of our platform for better quality in our services</p>
+            <a href="https://play.google.com/store/apps/details?id=com.airavas.myfuse"><button class="py-2 px-6 hover:bg-yellow-500 rounded-full focus:outline-none shadow bg-primary">Download</button></a>
+        </div>
+        <div class="flex flex-col lg:flex-row lg:w-6/12 pt-10 overflow-hidden justify-center glide">
+            <div class="glide__track w-full" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide flex flex-col lg:flex-row w-full lg:px-8 pt-10 items-center mx-10">
+                    <div class="w-full lg:pl-0 pl-8 lg:w-10/12">
+                        <h1 class="font-semibold">1. Login or Sign Up</h1>
+                        <p class="text-sm">use your personal credentials to create an account or login if you already have an existing account.</p>
+                    </div>
+                    <div class="pt-8 w-full">
+                        <img src="./img/1.png" alt="Image" class="w-56">
+                    </div>
+                </li>
+                <li class="glide__slide flex flex-col lg:flex-row w-full lg:px-8 pt-10 items-center">
+                    <div class="w-full lg:pl-0 pl-8 lg:w-10/12">
+                        <h1 class="font-semibold">2. Browse through job opportunities.</h1>
+                        <p class="text-sm">Browse through jobs list and apply for the ones meeting your skill set in few and easy steps.</p>
+                    </div>
+                    <div class="pt-8 w-full">
+                        <img src="./img/2.png" alt="Image" class="w-56">
+                    </div>
+                </li>
+                <li class="glide__slide flex flex-col lg:flex-row w-full lg:px-8 pt-10 items-center">
+                    <div class="w-full lg:pl-0 pl-8 lg:w-10/12">
+                        <h1 class="font-semibold">3. Clear mock interview to apply the job.</h1>
+                        <p class="text-sm">Get your mock test and perform your best.</p>
+                    </div>
+                    <div class="pt-8 w-full">
+                        <img src="./img/3.png" alt="Image" class="w-56">
+                    </div>
+                </li>
+                <li class="glide__slide flex flex-col lg:flex-row w-full lg:px-8 pt-10 items-center">
+                    <div class="w-full lg:pl-0 pl-8 lg:w-10/12">
+                        <h1 class="font-semibold">4. Get real time updates on your job application.</h1>
+                        <p class="text-sm">Get real time updates on jobs you applied for and get the best out of our assistive system.</p>
+                    </div>
+                    <div class="pt-8 w-full">
+                        <img src="./img/4.png" alt="Image" class="w-56">
+                    </div>
+                </li>
+              </ul>
+              <div class="glide mx-auto mt-4">
+                <div class="mx-auto text-center" data-glide-el="controls">
+                  <button class="px-3 py-1 bg-primary focus:outline-none shadow rounded-full" data-glide-dir="<">Prev</button>
+                  <button class="px-3 py-1 bg-primary focus:outline-none shadow rounded-full" data-glide-dir=">">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+       
+    </article>
+    <article class="lg:px-32 py-10">
+        <h1 class="font-semibold text-2xl text-center">Job Categories</h1>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-10 lg:px-24 px-8 py-10">
+
+            <div class="flex items-center bg-white rounded-full shadow-lg hover:shadow-xl  transition duration-300 p-4">
+                <div  class="w-12 h-12 items-center text-center rounded-full bg-secondary shadow-inner">
+                    <i class="fa fa-lg fa-dollar-sign text-primary pt-4"></i>
+                </div>
+                <h1 class="pl-6 text-sm font-semibold">Field/Inside sales</h1>
+            </div>
+            
+            <div class="flex items-center bg-white rounded-full shadow-lg hover:shadow-xl  transition duration-300 p-4">
+                <div  class="w-12 h-12 items-center text-center rounded-full bg-secondary shadow-inner">
+                    <i class="fa fa-lg fa-money-bill-alt text-primary pt-4"></i>
+                </div>
+                <h1 class="pl-6 text-sm font-semibold">Marketing</h1>
+            </div>
+
+            <div class="flex items-center bg-white rounded-full shadow-lg hover:shadow-xl  transition duration-300 p-4">
+                <div  class="w-12 h-12 items-center text-center rounded-full bg-secondary shadow-inner">
+                    <i class="fa fa-lg fa-phone text-primary pt-4"></i>
+                </div>
+                <h1 class="pl-6 text-sm font-semibold">Tele-callers</h1>
+            </div>
+
+            <div class="flex items-center bg-white rounded-full shadow-lg hover:shadow-xl  transition duration-300 p-4">
+                <div  class="w-12 h-12 items-center text-center rounded-full bg-secondary shadow-inner">
+                    <i class="fa fa-lg fa-file-excel text-primary pt-4"></i>
+                </div>
+                <h1 class="pl-6 text-sm font-semibold">Data Entry</h1>
+            </div>
+
+            <div class="flex items-center bg-white rounded-full shadow-lg hover:shadow-xl  transition duration-300 p-4">
+                <div  class="w-12 h-12 items-center text-center rounded-full bg-secondary shadow-inner">
+                    <i class="fa fa-lg fa-store text-primary pt-4"></i>
+                </div>
+                <h1 class="pl-6 text-sm font-semibold">Retail</h1>
+            </div>
+
+            <div class="flex items-center bg-white rounded-full shadow-lg hover:shadow-xl  transition duration-300 p-4">
+                <div  class="w-12 h-12 items-center text-center rounded-full bg-secondary shadow-inner">
+                    <i class="fa fa-lg fa-brain text-primary pt-4"></i>
+                </div>
+                <h1 class="pl-6 text-sm font-semibold">Skill Related</h1>
+            </div>
+
+            <div class="flex items-center bg-white rounded-full shadow-lg hover:shadow-xl  transition duration-300 p-4">
+                <div  class="w-12 h-12 items-center text-center rounded-full bg-secondary shadow-inner">
+                    <i class="fa fa-lg fa-truck text-primary pt-4"></i>
+                </div>
+                <h1 class="pl-6 text-sm font-semibold">Delivery</h1>
+            </div>
+
+            <div class="flex items-center bg-white rounded-full shadow-lg hover:shadow-xl  transition duration-300 p-4">
+                <div  class="w-12 h-12 items-center text-center rounded-full bg-secondary shadow-inner">
+                    <i class="fa fa-lg fa-walking text-primary pt-4"></i>
+                </div>
+                <h1 class="pl-6 text-sm font-semibold">Entry Level</h1>
+            </div>
+
+            <div class="flex items-center bg-white rounded-full shadow-lg hover:shadow-xl  transition duration-300 p-4">
+                <div  class="w-12 h-12 items-center text-center rounded-full bg-secondary shadow-inner">
+                    <i class="fa fa-lg fa-calculator text-primary pt-4"></i>
+                </div>
+                <h1 class="pl-6 text-sm font-semibold">Finance/Accounts</h1>
+            </div>
+
+        </div>
+    </article>
+
+    <article class="flex flex-col lg:flex-row items-center px-6 lg:text-normal text-sm lg:px-32 py-10 bg-white" id="about"> 
+        <div class="w-full">
+            <h1 class="font-semibold text-2xl py-2">About Us</h1>
+            <p>
+                With Myfuse, employers can post the job by selecting the section post jobs.
+                <br>
+                The jobs will be listed only after the verification of the employers. 
+                <br>
+                <br>
+                We provide jobs postings in major job categories. We believe in direct connection between the HR of company and candidates. 
+                As it would make the whole process of getting hired a seamless experience. 
+                <br>
+                <br>
+                In Myfuse app only the HR’s of company will be posting the job requests. 
+                Myfuse is the only platform were candidates can find the Job posting without any consultancies or agencies in between. 
+                All the applications will directly reach the companies. This service is free of cost and no hidden charges.
+            </p>
+        </div>
+        <div class="w-8/12">
+            <img src="./img/MyFuse.in.svg" alt="Logo" class="w-56 mx-auto lg:py-0 py-14">
+        </div>
+    </article>
+    <aside class="bg-secondary py-8 lg:px-32 px-10 flex flex-col lg:flex-row">
+        <div class="lg:w-full justify-center">
+            <h1 class="font-semibold text-2xl">Looking for job?</h1>
+            <a href="https://play.google.com/store/apps/details?id=com.airavas.myfuse"><button class="font-semibold px-6 py-2 text-black hover:bg-yellow-500 focus:outline-none rounded-full shadow bg-primary my-2">Download our app</button></a>
+        </div>
+        <div class="lg:w-6/12 lg:pt-0 pt-10 justify-center">
+            <h1 class="font-semibold text-2xl">Want to hire staff?</h1>
+            <a href="./jobpost.html"><button class="font-semibold px-6 py-2 text-black hover:bg-yellow-500 focus:outline-none rounded-full shadow bg-primary my-2">Post a job</button></a>
+        </div>
+    </aside>
+    <footer class="bg-dark py-10" id="contact">
+        <div class="flex w-max mx-auto gap-2 text-dark">
+            <a href="tel:+918431588451"><div class="w-10 h-10 shadow-inner hover:bg-gray-50 text-center bg-white rounded-full">
+                <i class="fab fa-lg fa-whatsapp pt-3"></i>
+            </div></a>
+            <a href="https://www.facebook.com/myfuse.india.9"><div class="w-10 h-10 shadow-inner hover:bg-gray-50 text-center bg-white rounded-full">
+                <i class="fab  fa-facebook-f pt-3"></i>
+            </div></a>
+            <a href="https://www.instagram.com/myfuse.in/"><div class="w-10 h-10 shadow-inner hover:bg-gray-50 text-center bg-white rounded-full">
+                <i class="fab fa-lg fa-instagram mt-3"></i>
+            </div></a>
+        </div>
+        <h1 class="text-center py-3 text-sm  text-white">All rights reserved Gruhachikitsa Interactive Solutions Private Limited ©2021</h1>
+    </footer>
+
+    
+
+<script>
+    new Glide('.glide', {
+  type: 'carousel',
+  autoplay: 7000,
+  animationDuration: 1500,
+  startAt: 0,
+  perView: 1,
+  width: 2000
+}).mount()
+</script>
+</body>
+</html>

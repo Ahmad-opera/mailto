@@ -84,92 +84,44 @@
         </div>
 
         <div class="">
-            <a href="/">
             <div class="absolute z-40 mt-8 lg:mt-0 rounded-3xl ml-10 bg-transparent lg:px-6 lg:py-8 lg:pt-4 py-2 px-4">
                 <img src="./img/MyFuse.in.svg" alt="Myfuse!" class="w-32 mt-0 lg:mt-6">
-            </div></a>
+            </div>
         </div>
 
         <nav class="absolute bg-white mx-auto w-full z-0 nav-collapsed items-center lg:py-10 pt-32 py-6 lg:flex lg:px-16 justify-center shadow-xl">
             <ul class="ml-auto font-semibold lg:flex lg:p-0 p-8">
-                <a href="/"><li class="px-4">Home</li></a>
-                <a href="/#contact"><li class="px-4">Contact</li></a>
-            <a href="/#about"><li class="px-4">About</li></a>
+                <a href="./index.html"><li class="px-4">Home</li></a>
+                <a href="./index.html#contact"><li class="px-4">Contact</li></a>
+            <a href="./index.html#about"><li class="px-4">About</li></a>
             </ul>
         </nav>
         <script>
             $('.hamburger').on('click', function(){
                 $('nav').toggleClass('nav-collapsed');
             })
-            </script>
-
-    <div class="hidden absolute w-full h-screen p-10 mx-auto z-40 bg-gray-50" id="okmsg">
-        
-    </div>
+        </script>
 
         <main class="pt-32 lg:pt-40 px-2 lg:px-24">
-            <form class="px-10 bg-white text-sm py-10 w-full lg:w-max shadow-xl rounded-3xl">
+            <form action="" class="px-10 bg-white text-sm py-10 w-full lg:w-max shadow-xl rounded-3xl">
                 <h1 class="font-semibold text-lg text-center lg:text-xl pb-8">Register yourself to start posting the jobs</h1>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                    <input type="text" id="name" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Full Name">
-                    <input type="tel" id="phone" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Phone number">
+                    <input type="text" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Full Name">
+                    <input type="tel" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Phone number">
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 py-3">
-                    <input type="email" id="email" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Email address">
-                    <input type="text" id="role" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Job Role">
+                    <input type="email" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Email address">
+                    <input type="text" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Job Role">
                 </div>
-                <textarea id="description" class="bg-yellow-50 focus:outline-none rounded-2xl w-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Job Description"></textarea>
+                <textarea class="bg-yellow-50 focus:outline-none rounded-2xl w-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Job Description"></textarea>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 py-3">
-                    <input type="text" id="company" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Company name">
-                    <input type="text" id="openings" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="No. of openings">
+                    <input type="text" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Company name">
+                    <input type="text" class="bg-yellow-50 focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="No. of openings">
                 </div>
-                <input type="address" id="location" class="bg-yellow-50 w-full focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Location">
+                <input type="address" class="bg-yellow-50 w-full focus:outline-none rounded-full px-6 py-3 bg-gray-50 shadow-inner" placeholder="Location">
                 <button class="w-full focus:outline-none my-4 ml-auto bg-primary hover:bg-yellow-500 rounded-full shadow font-semibold px-6 py-3">Submit</button>
             </form>
         </main>
-
-        </div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-        <script>
-            $('form').submit(e => {
-                e.preventDefault();
-    
-                const name = $('#name').val().trim();
-                const phone = $('#phone').val().trim();
-                const openings = $('#openings').val().trim();
-                const company = $('#company').val().trim();
-                const location = $('#location').val().trim();
-                const role = $('#role').val().trim();
-                const description = $('#description').val().trim();
-                const email = $('#email').val().trim();
-    
-                //Prepare data for POST
-                const data = {
-                    name,
-                    phone,
-                    openings,
-                    role,
-                    description,
-                    email,
-                    location,
-                    company
-                }
-                $.post('/email', data, function(){
-                    $('#okmsg').html(`<div class="mx-auto my-auto mt-32 text-center w-72 bg-white shadow-xl rounded-3xl px-5 py-16">
-                        <i class="fa fa-2x fa-check text-green-500 text-center"></i>
-                        <h1 class="font-semibold">Registration Successful!</h1>
-                    </div>`);
-                    $('#okmsg').removeClass('hidden');
-                    setTimeout(() => {
-                        window.location.href = '/';
-                    }, 2000);
-                    console.log("Server data sent!")
-                });
-            }).done(e => {
-                console.log(e);
-            })
-        </script>
 
 </body>
 </html>
